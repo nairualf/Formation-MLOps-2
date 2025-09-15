@@ -26,4 +26,9 @@ jobs:
       - name: Run tests
         run: python -m pytest tests/test_unit
       # Add behave command
+      - name: Run behave
+      - run: |
+          pip install behave
+          behave tests/test_functional/features
+
 
