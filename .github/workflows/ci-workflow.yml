@@ -28,11 +28,15 @@ jobs:
       - name: Install dev dependencies
         run:  pip install -r requirements_test.txt
       - name: Run Linter
-        run:  echo "0"
+        run:  |
+          pip install pylint
       - name: Run Vulture
-        run:  echo "0"
+        run:  |
+          pip install vulture
+          vulture . --min-confidence 80
       - name: Test with pytest
         run: |
+          pip install formation_indus_ds_avancee
           pytest
 
 
